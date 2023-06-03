@@ -13,3 +13,4 @@ export * from "./Layout";
  export * from "./Separator";
  export * from "./ListCart";
  export * from "./FooterCart";
+ export * from "./Redes";

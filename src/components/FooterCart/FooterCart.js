@@ -39,18 +39,10 @@ export function FooterCart(props) {
     <div className={styles.btnWhatsapp}>
       <div className={styles.paneluser}>
         <BiArrowBack onClick={() => handleClick("/")} size="35" color="grey" />
-{/* 
-        <div className={styles.btnList}>
-          <WhatsApp
-            phoneNumber="+573106556056"
-            message="Hola, me gustaría obtener más información sobre sus productos."
-          />
-          <p>Enviar</p>
-        </div> */}
 
         <a
           className={styles.btnwsp}
-          href={generateWhatsAppLink("+573106556056", product)}
+          href={generateWhatsAppLink("+573226630481", product)}
           target="_blank"
           rel="noopener noreferrer"
         >

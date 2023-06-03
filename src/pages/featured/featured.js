@@ -3,7 +3,7 @@ import {
   FooterApp,
   Exclusive,
   NotFound,
-  Separator,
+  Redes,
 } from "@/components";
 import { size } from "lodash";
 import { BasicLayout } from "@/layouts";
@@ -16,8 +16,7 @@ export default function FeaturedPage(props) {
   return (
     <>
       <BasicLayout>
-        <Separator />
-        <Separator />
+      <Redes />
         {hasProduct ? (
           <Exclusive products={products} />
         ) : (

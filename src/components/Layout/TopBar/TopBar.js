@@ -4,21 +4,19 @@ import Link from "next/link";
 
 export function TopBar() {
   return (
-    <>
+    <div className={styles.topBarComponent}>
       <div className={styles.topBar}>
         <Link href="/">
-          <CardImg src="/image/logo.png" alt="Naciotex" />{" "}
+          <CardImg src="/image/logo.png" alt="Meladitos" />{" "}
         </Link>
-      
+
         <div className={styles.title}>
-          <div className={styles.ano}>
-            <p className={styles.text}>CATÁLOGO</p>
-            <p className={styles.num}>2023</p>
-          </div>
-          <p className={styles.name}>NACIOTEX DISTRIBUIDORA</p>
-          <p className={styles.extra}>DESPACHOS A TODA COLOMBIA</p>
+          <p className={styles.text}>ALMACEN Y DISTRIBUIDORA</p>
+          <p className={styles.name}>LOS MELADITOS</p>
+          <p className={styles.extra}>EL DE LOS PRECIOS BAJITOS</p>
         </div>
       </div>
-    </>
+     
+    </div>
   );
 }

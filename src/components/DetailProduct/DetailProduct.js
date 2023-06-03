@@ -41,7 +41,7 @@ export function DetailProduct(props) {
 
             <div className={styles.whatsapp}>
               <WhatsApp
-                phoneNumber="+573106556056"
+                phoneNumber="+573226630481"
                 message={
                   BASE_NAME +
                   productData.images +

@@ -6,7 +6,7 @@ export function AboutUs() {
       <div className={styles.about}>
         <h1>Nosotros</h1>
         <p>
-          Bienvenidos a NACIOTEX DISTRIBUIDORA. Nos dedicamos a ofrecer prendas
+          Bienvenidos a LOS MELADITOS DISTRIBUIDORA. Nos dedicamos a ofrecer prendas
           de vestir y accesorios, para todas las edades tanto para compras
           minoristas como para ventas por mayor. Nuestra pasión por la moda se
           refleja en cada prenda que ofrecemos y nos esforzamos por ofrecer un
@@ -32,7 +32,7 @@ export function AboutUs() {
       <div className={styles.mision}>
         <h5>Misión</h5>
         <p>
-          Nuestra misión en NACIOTEX es ofrecer a nuestros clientes una
+          Nuestra misión es ofrecer a nuestros clientes una
           experiencia de compra excepcional, con prendas de vestir y accesorios
           de moda de alta calidad y precios asequibles. Nos esforzamos por hacer
           que cada cliente se sienta seguro y cómodo con su compra,
@@ -43,7 +43,7 @@ export function AboutUs() {
           accesorios para hombres y mujeres de todas las edades y estilos.
           Además, estamos comprometidos con la sostenibilidad y trabajamos con
           proveedores que comparten nuestra visión de producir prendas de vestir
-          de manera ética y respetuosa con el medio ambiente. En NACIOTEX, nos
+          de manera ética y respetuosa con el medio ambiente. En LOS MELADITOS, nos
           esforzamos por superar las expectativas de nuestros clientes y
           construir relaciones duraderas basadas en la confianza y la
           satisfacción. ¡Gracias por elegirnos para ser tu tienda en línea de
@@ -54,7 +54,7 @@ export function AboutUs() {
       <div className={styles.vision}>
         <h5>Visión</h5>
         <p>
-          En NACIOTEX, nuestra visión es convertirnos en la tienda en líder en
+          Nuestra visión es convertirnos en la tienda en líder en
           moda sostenible y de alta calidad para hombres y mujeres de todas las
           edades. Queremos inspirar a nuestros clientes a expresarse a través de
           la moda y ayudarlos a sentirse seguros y cómodos con su estilo
@@ -68,7 +68,7 @@ export function AboutUs() {
           nuestros clientes, basadas en la confianza y la satisfacción. Queremos
           ser una marca en la que los clientes puedan confiar para obtener
           prendas de vestir de calidad y una experiencia de compra excepcional.
-          En resumen, nuestra visión en NACIOTEX es liderar la industria de la
+          En resumen, nuestra visión es liderar la industria de la
           moda, ofreciendo prendas de vestir y accesorios de alta calidad,
           sostenibles y asequibles, mientras brindamos un servicio al cliente
           excepcional y construimos relaciones duraderas con nuestros clientes.
@@ -78,14 +78,15 @@ export function AboutUs() {
       <div className={styles.phone}>
         <h5>Líneas de atención</h5>
         <ul>
-          <li>(+57) 310 6556056</li>
-          <li> naciotex.cali@gmail.com</li>
+          <li>(+57) 322 663 0481</li>
+          <li>(+57) 313 600 8914</li>
+          <li>(+602) 881 6111</li>
         </ul>
       </div>
 
       <div className={styles.adress}>
         <h5>Ubicación:</h5>
-        <p>Cra. 8 #16-63, San Nicolas, Cali, Valle del Cauca</p>
+        <p>Calle 15# 9-36 frente a la estación del mio Petecuy</p>
       </div>
     </div>
   );
