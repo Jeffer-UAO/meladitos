@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Redes.module.scss";
 import { IoLogoWhatsapp } from "react-icons/io";
-import { GiRotaryPhone } from "react-icons/Gi";
+import { GiRotaryPhone } from "react-icons/gi";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 
