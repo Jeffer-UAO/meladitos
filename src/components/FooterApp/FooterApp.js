@@ -1,17 +1,47 @@
-import { WhatsApp } from "../WhatsApp";
-import styles from "./FooterApp.module.scss";
-import { AiOutlineHome } from "react-icons/ai";
+import React, { useState } from "react";
+import { useCart } from "@/hooks/useCart"; 
+import { useWhatsApp } from "@/hooks/useWhatsApp";
+
+import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai";
 import { MdOutlineCategory } from "react-icons/md";
-import { MdOutlineLocalOffer } from "react-icons/md";
 import { CiUser } from "react-icons/ci";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { BsWhatsapp } from "react-icons/bs";
+
+import styles from "./FooterApp.module.scss";
 
 import { BtnLink } from "../Common";
-
-import { useCart } from "@/hooks/useCart"; 
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  FormGroup,
+} from "reactstrap";
 
 export function FooterApp() {
+
   const { total } = useCart();
+  const { generateWhatsAppLink, items, selectedItem, handleItemClick } =
+    useWhatsApp();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const addData = () => {
+    const whatsappLink = generateWhatsAppLink(
+      selectedItem,
+      "Hola, me gustaría obtener más información sobre sus productos."
+    );
+
+    window.location.href = whatsappLink;
+
+    toggleModal();
+  };
+
   return (
     <div className={styles.btnWhatsapp}>
       <div className={styles.paneluser}>
@@ -22,19 +52,12 @@ export function FooterApp() {
           logo={<MdOutlineCategory size={20} />}
         />
 
-        <WhatsApp
-          phoneNumber="+573226630481"
-          message="Hola, me gustaría obtener más información sobre sus productos."
-        />
-
-        {/* <BtnLink
-          link={"/ofert"}
-          title={"OFER"}
-          logo={<MdOutlineLocalOffer size={20} />}
-        /> */}
+        <Button className={styles.whatsapp}  color="succefull" onClick={() => toggleModal()}>
+          <BsWhatsapp size={30} color='green'/>
+        </Button>
 
         <div className={styles.cart}>
-          <p>{total}</p>
+        <p>{total}</p>
           <BtnLink
             link={"/cart"}
             title={"CART"}
@@ -43,13 +66,42 @@ export function FooterApp() {
         </div>
 
         <BtnLink
-          link={
-            "https://meladitos.catalogointeractivo.com.co/admin-dashboard/"
-          }
+          link={"https://meladitos.catalogointeractivo.com.co/admin-dashboard/"}
           title={"ADMI"}
           logo={<CiUser size={20} />}
         />
       </div>
+
+      <Modal isOpen={isOpen} toggle={toggleModal}>
+        <ModalHeader toggle={toggleModal}>Seleccione una Linea</ModalHeader>
+
+        <ModalBody>
+          <FormGroup>
+            {items.map((item, index) => (
+              
+              <Button
+                key={index}
+                color="success"
+                outline
+                className={index === selectedItem ? "selected" : ""}
+                onClick={() => handleItemClick(item)}            
+              >
+                <BsWhatsapp size={30}/> Linea {index + 1}
+              </Button>
+            ))}
+          </FormGroup>
+        </ModalBody>
+
+        <ModalFooter>
+        <Button color="secondary" onClick={toggleModal}>
+            Cancelar
+          </Button>
+          <Button color="success" onClick={addData}>
+            Aceptar
+          </Button>{" "}
+         
+        </ModalFooter>
+      </Modal>
     </div>
   );
 }

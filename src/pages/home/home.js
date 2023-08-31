@@ -7,7 +7,6 @@ import {
   Promotion,
   Exclusive,
   FooterApp,
-  Separator,
   Redes,
 } from "@/components";
 

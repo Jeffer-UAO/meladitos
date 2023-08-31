@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Naciotex Distribuidora",
-  "short_name": "Catálogo Naciotex",
-  "description": "Catálogo Naciotex",
+  "name": "MELADITOS",
+  "short_name": "Catálogo Meladitos",
+  "description": "Catálogo Meladitos",
   "icons": [
     {
       "src": "/icon-192x192.png",

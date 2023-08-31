@@ -6,13 +6,6 @@ import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 
 
-
-
-
-
-
-
-
 export function Redes() {
   return <div className={styles.space}>
     <h4>CATÁLOGO 2023</h4>

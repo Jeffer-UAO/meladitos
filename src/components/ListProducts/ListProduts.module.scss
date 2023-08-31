@@ -1,7 +1,7 @@
-.listProduct{
+.listProduct {
   padding-top: 0rem;
   width: 100%;
-  h4{
+  h4 {
     text-transform: capitalize;
     margin: 1rem;
   }
@@ -14,7 +14,7 @@
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   background-color: rgb(241, 241, 241);
 
-  button{
+  button {
     width: 100% !important;
     background-color: #ffd814;
     border: none;
@@ -23,31 +23,15 @@
 
   &__product {
     background-color: rgb(255, 255, 255);
-    position: relative;  
+    position: relative;
     border-radius: 5px;
-    .pencil {
-      // position: absolute;
-      // margin: 10px;
-      // display: flex;
-      // background-color: rgb(181, 0, 0);
-      // border-radius: 50%;
-      // height: 35px;
-      // width: 35px;
-      // padding: 5px;
-      // align-items: center;
-      // box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
 
-       svg {
-        color: rgb(255, 255, 255);
-      }
-    }
-
-    img {
-      height: 200px;
+    img {     
       border-top-right-radius: 5px;
       border-top-left-radius: 5px;
       object-fit: cover;
       object-position: center center;
+      aspect-ratio: 1/1;
     }
 
     .title {
@@ -56,11 +40,19 @@
       padding: 5px;
       text-transform: uppercase;
     }
-    .price{
+    .price {
       display: flex;
       justify-content: space-between;
-
-      
+      align-items: center;
+      .whatsapp {
+        margin: 0.5rem;
+        padding: 0.6rem;
+        background-color: #76be1e;
+        border-radius: 50%;
+        -webkit-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+        box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.19);
+      }
     }
 
     h5 {
@@ -70,7 +62,7 @@
     h6 {
       font-size: 12px;
       padding-left: 5px;
-text-align: start;
+      text-align: start;
     }
   }
 }

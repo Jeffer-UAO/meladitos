@@ -1,14 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { map } from "lodash";
 import { BASE_NAME } from "@/config/constants";
-
-import { CardImg, CardTitle } from "reactstrap";
-import styles from "./DetailProduct.module.scss";
 import { WhatsApp } from "../WhatsApp";
+import { useWhatsApp } from "@/hooks/useWhatsApp";
+import {CardImg,
+CardTitle,
+Button,
+Modal,
+ModalHeader,
+ModalBody,
+ModalFooter,
+FormGroup,
+Input,
+} from "reactstrap";
+
+import { BsWhatsapp } from "react-icons/bs";
+import styles from "./DetailProduct.module.scss";
 
 export function DetailProduct(props) {
-  const [productData, setProductData] = useState("");
   const { product, relate } = props;
+  const { generateWhatsAppLink, items, selectedItem, handleItemClick } =
+  useWhatsApp();
+  
+  const [productData, setProductData] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [propductWhatsApp, setPropductWhatsApp] = useState();
+
 
   useEffect(() => {
     setProductData(product[0]);
@@ -18,6 +35,29 @@ export function DetailProduct(props) {
     setProductData(data);
     window.scrollTo(0, 0);
   };
+
+//-------------------------------------
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const addProductToWhatsApp = (data) => {
+    setPropductWhatsApp(data);
+    toggleModal();
+  };
+
+  const addDataToWhatsApp = () => {
+    const whatsappLink = generateWhatsAppLink(
+      selectedItem,
+      BASE_NAME + propductWhatsApp
+    );
+
+    window.location.href = whatsappLink;
+
+    toggleModal();
+  };
+
 
   if (product) {
     return (
@@ -39,20 +79,23 @@ export function DetailProduct(props) {
             </CardTitle>
             <p>{productData.description}</p>
 
-            <div className={styles.whatsapp}>
-              <WhatsApp
-                phoneNumber="+573226630481"
-                message={
-                  BASE_NAME +
-                  productData.images +
-                  " " +
-                  productData.name_extend +
-                  " " +
-                  "Referencia: " +
-                  productData.ref
-                }
-              />
-            </div>
+        
+            <div
+                    className={styles.whatsapp}
+                    onClick={() =>
+                      addProductToWhatsApp(
+                       productData.images +
+                          " " +
+                          productData.name_extend +
+                          " " +
+                          "Referencia: " +
+                          productData.ref
+                      )
+                    }
+                  >
+                    <BsWhatsapp size={25} color="white" />
+                  </div>
+
           </div>
         </div>
 
@@ -83,6 +126,36 @@ export function DetailProduct(props) {
             ))}
           </div>
         </div>
+
+        <Modal isOpen={isOpen} toggle={toggleModal}>
+        <ModalHeader toggle={toggleModal}>Seleccione una Linea</ModalHeader>
+
+        <ModalBody>
+          <FormGroup>
+            {items.map((item, index) => (
+              <Button
+                key={index}
+                color="success"
+                outline
+                className={index === selectedItem ? "selected" : ""}
+                onClick={() => handleItemClick(item)}
+              >
+                <BsWhatsapp size={30} /> Linea {index + 1}
+              </Button>
+            ))}
+          </FormGroup>
+        </ModalBody>
+
+        <ModalFooter>
+          <Button color="secondary" onClick={toggleModal}>
+            Cancelar
+          </Button>
+          <Button color="success" onClick={addDataToWhatsApp}>
+            Aceptar
+          </Button>{" "}
+        </ModalFooter>
+      </Modal>
+
       </div>
     );
   } else {

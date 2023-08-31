@@ -1,19 +1,38 @@
-import styles from "./FooterCart.module.scss";
+import React, {useState} from "react";
+import { useRouter } from "next/router";
+import { useCart } from "@/hooks/useCart";
+import { useWhatsApp } from "@/hooks/useWhatsApp";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  FormGroup,
+} from "reactstrap";
+
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { BsTrash3 } from "react-icons/bs";
-
-
 import { BiArrowBack } from "react-icons/bi";
-import { useRouter } from "next/router";
+import { BsWhatsapp } from "react-icons/bs";
 
+import styles from "./FooterCart.module.scss";
 
-import { useCart } from "@/hooks/useCart";
 
 
 export function FooterCart(props) {
   const { product } = props;
   const { deleteAllCart } = useCart();
+  const { items, selectedItem, handleItemClick } =
+    useWhatsApp();
   const router = useRouter();
+
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
 
   
 
@@ -35,24 +54,66 @@ export function FooterCart(props) {
     return `${url}?text=${encodedMessage}`;
   };
 
+  const addData = () => {
+    const whatsappLink = generateWhatsAppLink(
+      selectedItem,
+      product,
+    );
+
+    window.location.href = whatsappLink;
+
+    toggleModal();
+  };
+
+
   return (
     <div className={styles.btnWhatsapp}>
       <div className={styles.paneluser}>
         <BiArrowBack onClick={() => handleClick("/")} size="35" color="grey" />
 
-        <a
-          className={styles.btnwsp}
-          href={generateWhatsAppLink("+573226630481", product)}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className={styles.whatsapp}>
-            <AiOutlineWhatsApp size="35" />
-          </div>
+
+        <Button className={styles.whatsapp}  color="succefull" onClick={() => toggleModal()}>
+          <BsWhatsapp size={30} color='green'/>
           <p>Enviar Listado</p>
-        </a>
+        </Button>
+
+        
         <BsTrash3 size="25" color="grey" onClick={confirmation} />
       </div>
+
+      <Modal isOpen={isOpen} toggle={toggleModal}>
+        <ModalHeader toggle={toggleModal}>Seleccione una Linea</ModalHeader>
+
+        <ModalBody>
+          <FormGroup>
+            {items.map((item, index) => (
+              
+              <Button
+                key={index}
+                color="success"
+                outline
+                className={index === selectedItem ? "selected" : ""}
+                onClick={() => handleItemClick(item)}            
+              >
+                <BsWhatsapp size={30}/> Linea {index + 1}
+              </Button>
+            ))}
+          </FormGroup>
+        </ModalBody>
+
+        <ModalFooter>
+        <Button color="secondary" onClick={toggleModal}>
+            Cancelar
+          </Button>
+          <Button color="success" onClick={addData}>
+            Aceptar
+          </Button>{" "}
+         
+        </ModalFooter>
+      </Modal>
+
+
+
     </div>
   );
 }
