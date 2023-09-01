@@ -86,7 +86,7 @@ export function FooterApp() {
                 className={index === selectedItem ? "selected" : ""}
                 onClick={() => handleItemClick(item)}            
               >
-                <BsWhatsapp size={30}/> Linea {index + 1}
+                <BsWhatsapp size={25}/> Linea {index + 1}
               </Button>
             ))}
           </FormGroup>

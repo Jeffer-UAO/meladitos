@@ -33,9 +33,7 @@ export function ListCart(props) {
 
               <p className={styles.price}>Detal: $ {item.price1}</p>
               <p className={styles.price}>Mayor: $ {item.price2}</p>
-              {/* <p className={styles.quantity}>
-                Total: $ {item.quantity * item.price1}
-              </p> */}
+              
 
               <div className={styles.btn}>
                 <AiOutlineMinusCircle
@@ -59,8 +57,7 @@ export function ListCart(props) {
               </Button>
             </div>
           </div>
-        ))}
-        {/* <h2>Total</h2> */}
+        ))}    
       </div>
     </div>
   );
