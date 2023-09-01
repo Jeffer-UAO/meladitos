@@ -11,7 +11,7 @@ export function Redes() {
     <h4>CATÁLOGO 2023</h4>
     <div className={styles.phone}>
       <p><IoLogoWhatsapp  size="20" color="#63f945" /> 322 663 0481 - 313 600 8914</p>
-      <p><GiRotaryPhone color="#ff0202" size="22"/> 881 6111</p>
+      
     </div>
 
   
