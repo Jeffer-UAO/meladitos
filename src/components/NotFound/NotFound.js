@@ -6,8 +6,8 @@ export function NotFound(props) {
   return (
     <div className={styles.notfound}>
 
-      <SiNotepadplusplus size ={360}/>
-      <h3>{title}</h3>
+      <SiNotepadplusplus size ={240}/>
+      <h6>{title}</h6>
     </div>
   )
 }

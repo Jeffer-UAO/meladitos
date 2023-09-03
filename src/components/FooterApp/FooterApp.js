@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useCart } from "@/hooks/useCart"; 
+import { useCart } from "@/hooks/useCart";
 import { useWhatsApp } from "@/hooks/useWhatsApp";
 
 import { AiOutlineHome, AiOutlineShoppingCart } from "react-icons/ai";
@@ -20,7 +20,6 @@ import {
 } from "reactstrap";
 
 export function FooterApp() {
-
   const { total } = useCart();
   const { generateWhatsAppLink, items, selectedItem, handleItemClick } =
     useWhatsApp();
@@ -52,12 +51,16 @@ export function FooterApp() {
           logo={<MdOutlineCategory size={20} />}
         />
 
-        <Button className={styles.whatsapp}  color="succefull" onClick={() => toggleModal()}>
-          <BsWhatsapp size={30} color='green'/>
+        <Button
+          className={styles.whatsapp}
+          color="succefull"
+          onClick={() => toggleModal()}
+        >
+          <BsWhatsapp size={30} color="green" />
         </Button>
 
         <div className={styles.cart}>
-        <p>{total}</p>
+          <p>{total}</p>
           <BtnLink
             link={"/cart"}
             title={"CART"}
@@ -72,34 +75,33 @@ export function FooterApp() {
         />
       </div>
 
-      <Modal isOpen={isOpen} toggle={toggleModal}>
+      <Modal centered isOpen={isOpen} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal}>Seleccione una Linea</ModalHeader>
 
         <ModalBody>
           <FormGroup>
             {items.map((item, index) => (
-              
               <Button
                 key={index}
                 color="success"
                 outline
+                size="sm"
                 className={index === selectedItem ? "selected" : ""}
-                onClick={() => handleItemClick(item)}            
+                onClick={() => handleItemClick(item)}
               >
-                <BsWhatsapp size={25}/> Linea {index + 1}
+                <BsWhatsapp size={20} /> Linea {index + 1}
               </Button>
             ))}
           </FormGroup>
         </ModalBody>
 
         <ModalFooter>
-        <Button color="secondary" onClick={toggleModal}>
+          <Button outline size="sm" color="secondary" onClick={toggleModal}>
             Cancelar
           </Button>
-          <Button color="success" onClick={addData}>
+          <Button size="sm" color="success" onClick={addData}>
             Aceptar
-          </Button>{" "}
-         
+          </Button>
         </ModalFooter>
       </Modal>
     </div>

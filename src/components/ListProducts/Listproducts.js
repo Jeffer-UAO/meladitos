@@ -159,30 +159,31 @@ export function Listproducts(props) {
         </ModalFooter>
       </Modal>
 
-      <Modal isOpen={isOpen2} toggle={toggleModal2}>
+      <Modal centered isOpen={isOpen2} toggle={toggleModal2}>
         <ModalHeader toggle={toggleModal2}>Seleccione una Linea</ModalHeader>
 
         <ModalBody>
           <FormGroup>
             {items.map((item, index) => (
               <Button
+                size="sm"
                 key={index}
                 color="success"
                 outline
                 className={index === selectedItem ? "selected" : ""}
                 onClick={() => handleItemClick(item)}
               >
-                <BsWhatsapp size={25} /> Linea {index + 1}
+                <BsWhatsapp size={20} /> Linea {index + 1}
               </Button>
             ))}
           </FormGroup>
         </ModalBody>
 
         <ModalFooter>
-          <Button color="secondary" onClick={toggleModal2}>
+          <Button siz="sm" outline color="secondary" onClick={toggleModal2}>
             Cancelar
           </Button>
-          <Button color="success" onClick={addDataToWhatsApp}>
+          <Button size="sm" color="success" onClick={addDataToWhatsApp}>
             Aceptar
           </Button>{" "}
         </ModalFooter>

@@ -10,15 +10,13 @@
   z-index: 5;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
-
-  border-top: solid 2px white;
+  padding: 0.2rem;
+  border-bottom: solid 2px rgb(247, 243, 5);
   h4{
-    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 0);
     text-shadow: 0.1em 0.1em 0.05em #333;
     letter-spacing: 0.1em;
-    font-weight: 800;
-    
+    font-weight: 800;    
   }
 
   .phone {
@@ -27,11 +25,11 @@
   }
   .redes {
     display: flex;
+    gap:0.5rem;
+    flex-wrap: nowrap;
     justify-content: center;
   }
   p {
-    color: white;
-    padding-left: 10px;
-    padding-right: 10px;
+    color: white;  
   }
 }

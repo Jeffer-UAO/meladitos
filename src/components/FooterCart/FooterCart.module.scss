@@ -17,7 +17,7 @@
     -moz-box-shadow: -1px 1px 15px 7px rgba(133, 133, 133, 0.53);
     box-shadow: -1px 1px 15px 7px rgba(134, 134, 134, 0.53);
 
-    .btnwsp{
+    .btnwsp {
       display: flex;
       align-items: center;
       background-color: rgb(250, 85, 236);
@@ -25,15 +25,14 @@
       padding: 0.5rem 1.5rem;
       border-radius: 2rem;
       justify-content: space-between;
-      p{
+      p {
         font-size: 18px;
         font-weight: 800;
       }
     }
-
   }
 
-  .btnList{
+  .btnList {
     display: flex;
     align-items: center;
     background-color: rgb(250, 85, 236);
@@ -41,5 +40,4 @@
     padding: 5px;
     border-radius: 2rem;
   }
-  
 }

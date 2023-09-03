@@ -54,7 +54,7 @@ export function Footer() {
           reservados <br />
           Desarrollado por: Jeffer Quiñones <br />
           Cel: 300 530 9990
-          Versión 5.0.1
+          Versión 5.0.2
         </p>
       </div>
     </div>
