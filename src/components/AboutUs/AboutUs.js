@@ -79,8 +79,8 @@ export function AboutUs() {
         <h5>Líneas de atención</h5>
         <ul>
           <li>(+57) 322 663 0481</li>
-          <li>(+57) 313 600 8914</li>
-          <li>(+602) 881 6111</li>
+          <li>(+57) 310 893 7275</li>
+          <li>(+57) 310 761 7780</li>
         </ul>
       </div>
 
