@@ -21,7 +21,7 @@ import {
 
 export function FooterApp() {
   const { total } = useCart();
-  const { generateWhatsAppLink, items, selectedItem, handleItemClick } =
+  const { generateWhatsAppLink, items, seller, selectedItem, handleItemClick } =
     useWhatsApp();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -90,6 +90,7 @@ export function FooterApp() {
                 onClick={() => handleItemClick(item)}
               >
                 <BsWhatsapp size={20} /> Linea {index + 1}
+                <p>{seller[index]}</p>
               </Button>
             ))}
           </FormGroup>

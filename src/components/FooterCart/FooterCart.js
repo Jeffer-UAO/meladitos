@@ -20,7 +20,7 @@ import styles from "./FooterCart.module.scss";
 export function FooterCart(props) {
   const { product } = props;
   const { deleteAllCart } = useCart();
-  const { items, selectedItem, handleItemClick } = useWhatsApp();
+  const { items, seller, selectedItem, handleItemClick } = useWhatsApp();
   const router = useRouter();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -87,6 +87,7 @@ export function FooterCart(props) {
               onClick={() => handleItemClick(item)}
             >
               <BsWhatsapp size={20} /> Linea {index + 1}
+              <p>{seller[index]}</p>
             </Button>
           ))}
         </ModalBody>

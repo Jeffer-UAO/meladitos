@@ -20,7 +20,7 @@ import styles from "./DetailProduct.module.scss";
 
 export function DetailProduct(props) {
   const { product, relate } = props;
-  const { generateWhatsAppLink, items, selectedItem, handleItemClick } =
+  const { generateWhatsAppLink, items, seller, selectedItem, handleItemClick } =
     useWhatsApp();
 
   const [productData, setProductData] = useState("");
@@ -139,6 +139,7 @@ export function DetailProduct(props) {
                   onClick={() => handleItemClick(item)}
                 >
                   <BsWhatsapp size={20} /> Linea {index + 1}
+                  <p>{seller[index]}</p>
                 </Button>
               ))}
             </FormGroup>
