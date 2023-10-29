@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { map } from "lodash";
 import { BASE_NAME } from "@/config/constants";
-import { WhatsApp } from "../WhatsApp";
 import { useWhatsApp } from "@/hooks/useWhatsApp";
 import {
   CardImg,
@@ -19,7 +18,10 @@ import { BsWhatsapp } from "react-icons/bs";
 import styles from "./DetailProduct.module.scss";
 
 export function DetailProduct(props) {
+  const scale = "c_scale,f_auto,q_auto,w_500/";
+  const upload = "image/upload/";
   const { product, relate } = props;
+
   const { generateWhatsAppLink, items, seller, selectedItem, handleItemClick } =
     useWhatsApp();
 
@@ -62,7 +64,12 @@ export function DetailProduct(props) {
     return (
       <div className={styles.detailProduct}>
         <div className={styles.product} id="seccion-1">
-          <CardImg alt="Card image cap" src={BASE_NAME + productData.images} />
+          <CardImg
+            alt="Card image cap"
+            src={
+              BASE_NAME + upload + scale + productData.images?.split(upload)[1]
+            }
+          />
 
           <div className={styles.description}>
             <CardTitle className={styles.title}>

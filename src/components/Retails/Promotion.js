@@ -5,6 +5,9 @@ import styles from "./Retail.module.scss";
 import { map } from "lodash";
 
 export function Promotion(props) {
+  const scale = "c_scale,f_auto,q_auto,w_150/";
+  const upload = "image/upload/";
+
   const { products } = props;
   return (
     <div className={styles.content}>
@@ -22,7 +25,12 @@ export function Promotion(props) {
               >
                 <CardImg
                   alt="Card image cap"
-                  src={BASE_NAME + product.images}
+                  src={
+                    BASE_NAME +
+                    upload +
+                    scale +
+                    product.images.split(upload)[1]
+                  }
                 />
 
                 <div className={styles.product}>

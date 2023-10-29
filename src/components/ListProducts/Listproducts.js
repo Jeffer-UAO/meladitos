@@ -23,6 +23,10 @@ import { BsWhatsapp } from "react-icons/bs";
 import styles from "./ListProduts.module.scss";
 
 export function Listproducts(props) {
+  const scale = "c_scale,f_auto,q_auto,w_200/";
+  const upload = 'image/upload/';
+
+
   const { products, title } = props;
   const { addCart, loading } = useCart();
   const { generateWhatsAppLink, items, seller, selectedItem, handleItemClick } =
@@ -86,10 +90,16 @@ export function Listproducts(props) {
               <Link href={`/${product.productData.slug}`}>
                 <CardImg
                   alt="Card image cap"
-                  src={BASE_NAME + product.productData.images}
+                  src={
+                    BASE_NAME +
+                  upload +
+                  scale +
+                    product.productData.images.split(upload)[1]
+                  }
                 />
               </Link>
               <div className={styles.product}>
+                {/* <p>{product.productData.images.split(upload)[1]}</p> */}
                 <CardTitle className={styles.title}>
                   <h5>{product.productData.name_extend}</h5>
                 </CardTitle>

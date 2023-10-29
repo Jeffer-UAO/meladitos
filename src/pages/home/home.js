@@ -48,9 +48,9 @@ export default function HomePage() {
           <Redes />
           <ListCategories categories={categories} />
 
-          <Promotion products={products} />
+          {/* <Promotion products={products} />
           <hr />
-          <Exclusive products={products} />
+          <Exclusive products={products} /> */}
 
           <FooterApp />
           <Footer />

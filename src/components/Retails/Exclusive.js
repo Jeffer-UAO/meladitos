@@ -6,6 +6,8 @@ import { map } from "lodash";
 
 export function Exclusive(props) {
   const { products } = props;
+  const scale = "c_scale,f_auto,q_auto,w_200/";
+  const upload = 'image/upload/';
 
   return (
     <div className={styles.content}>
@@ -23,7 +25,8 @@ export function Exclusive(props) {
               >
                 <CardImg
                   alt="Card image cap"
-                  src={BASE_NAME + product.images}
+                  src={BASE_NAME + upload +
+                    scale + product.images.split(upload)[1]}
                 />
 
                 <div className={styles.product}>

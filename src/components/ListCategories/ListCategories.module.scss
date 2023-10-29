@@ -44,7 +44,8 @@
     img {
       object-fit: cover;
       object-position: center center;
-      border-radius: 8px;
+      max-width: 200px;    
+      border-radius: 8px;    
       aspect-ratio: 1/1;
     }
   }

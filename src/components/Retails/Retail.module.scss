@@ -10,7 +10,7 @@
   .list {
     display: grid;
     gap: 0.6rem;
-    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
 
     &__product {
       position: relative;
