@@ -14,7 +14,7 @@ import {
 import { BasicLayout } from "../../layouts";
 
 const categoriesCtrl = new Categories();
-const productsCtrl = new Products();
+// const productsCtrl = new Products();
 
 export default function HomePage() {
   const [categories, setCategories] = useState(null);
@@ -42,7 +42,7 @@ export default function HomePage() {
   //   })();
   // }, []);
 
-  if (products !== null) {
+  if (categories !== null) {
     return (
       <>
         <BasicLayout>
