@@ -3,8 +3,16 @@ import { BASE_API } from "../config/constants";
 export class Categories {
   async getAll() {
     try {
-      const url = `${BASE_API}/api/category/`;
-      const response = await fetch(url);
+      const url = `${BASE_API}/api/category`;
+
+      const requestOptions = {
+        method: "GET",
+        headers: {
+          Origin: window.location.origin,
+        },
+      };
+
+      const response = await fetch(url, requestOptions);
       const result = await response.json();
 
       if (response.status !== 200) throw result;
@@ -13,7 +21,6 @@ export class Categories {
       throw error;
     }
   }
-
   async getBySlug(slug) {
     try {
       const slugFilter = `slug=${slug}`;
@@ -31,5 +38,4 @@ export class Categories {
       );
     }
   }
-
 }

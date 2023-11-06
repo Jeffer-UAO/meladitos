@@ -6,6 +6,7 @@ import {
   Footer,
   Promotion,
   Exclusive,
+  NotFound,
   FooterApp,
   Redes,
 } from "@/components";
@@ -30,16 +31,16 @@ export default function HomePage() {
     })();
   }, []);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await productsCtrl.getProductByOfertAndExclusive();
-        setProducts(response);
-      } catch (error) {
-        console.error(error);
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       const response = await productsCtrl.getProductByOfertAndExclusive();
+  //       setProducts(response);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   })();
+  // }, []);
 
   if (products !== null) {
     return (
@@ -60,6 +61,13 @@ export default function HomePage() {
   } else {
     return (
       <>
+        <noscript>
+          <font color="red">
+            {" "}
+            JavaScript está desactivado en su navegador. Habilite JavaScript
+            para acceder a todas las funciones del sitio.{" "}
+          </font>
+        </noscript>
         <BasicLayout>
           <ListCategories categories={categories} />
           <FooterApp />
