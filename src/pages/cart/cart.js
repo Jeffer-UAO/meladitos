@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useCart } from "@/hooks/useCart";
 import { Products } from "@/api/products";
-import { Footer, FooterCart, ListCart, NotFound, Redes, Separator } from "@/components";
+import { Footer, FooterCart, ListCart, NotFound, Redes } from "@/components";
 import { BasicLayout } from "@/layouts";
 import { size } from "lodash";
 import { BASE_NAME } from "@/config/constants";

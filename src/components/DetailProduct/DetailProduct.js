@@ -11,14 +11,13 @@ import {
   ModalBody,
   ModalFooter,
   FormGroup,
-  Input,
 } from "reactstrap";
 
 import { BsWhatsapp } from "react-icons/bs";
 import styles from "./DetailProduct.module.scss";
 
 export function DetailProduct(props) {
-  const scale = "c_scale,f_auto,q_auto,w_500/";
+  const scale = "c_scale,f_auto,q_auto,w_800/";
   const upload = "image/upload/";
   const { product, relate } = props;
 
@@ -56,7 +55,6 @@ export function DetailProduct(props) {
     );
 
     window.location.href = whatsappLink;
-
     toggleModal();
   };
 
@@ -83,6 +81,7 @@ export function DetailProduct(props) {
                 )}
               </div>
             </CardTitle>
+            
             <p>{productData.description}</p>
 
             <div
@@ -103,7 +102,7 @@ export function DetailProduct(props) {
           </div>
         </div>
 
-        <div className={styles.relate}>
+        {/* <div className={styles.relate}>
           <p>PRODUCTOS RELACIONADOS</p>
 
           <div className={styles.list}>
@@ -129,7 +128,7 @@ export function DetailProduct(props) {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <Modal centered isOpen={isOpen} toggle={toggleModal}>
           <ModalHeader toggle={toggleModal}>Seleccione una Linea</ModalHeader>

@@ -23,7 +23,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import styles from "./ListProduts.module.scss";
 
 export function Listproducts(props) {
-  const scale = "c_scale,f_auto,q_auto,w_200/";
+  const scale = "c_scale,f_auto,q_auto,w_400/";
   const upload = 'image/upload/';
 
 
