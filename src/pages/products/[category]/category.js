@@ -5,7 +5,6 @@ import {
   Footer,
   NotFound,
   FooterApp,
-  Separator,
   Redes,
 } from "@/components";
 

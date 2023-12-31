@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { map } from "lodash";
 import { BASE_NAME } from "@/config/constants";
-import { useWhatsApp } from "@/hooks/useWhatsApp";
+import { useWhatsApp, useCart } from "@/hooks";
 import {
   CardImg,
   CardTitle,
@@ -11,8 +10,10 @@ import {
   ModalBody,
   ModalFooter,
   FormGroup,
+  Input,
 } from "reactstrap";
 
+import { toast } from "react-toastify";
 import { BsWhatsapp } from "react-icons/bs";
 import styles from "./DetailProduct.module.scss";
 
@@ -20,13 +21,18 @@ export function DetailProduct(props) {
   const scale = "c_scale,f_auto,q_auto,w_800/";
   const upload = "image/upload/";
   const { product, relate } = props;
+  
 
   const { generateWhatsAppLink, items, seller, selectedItem, handleItemClick } =
     useWhatsApp();
 
+  const { addCart } = useCart();
   const [productData, setProductData] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [propductWhatsApp, setPropductWhatsApp] = useState();
+  const [idProduct, setIdPropduct] = useState();
+  const [showModal, setShowModal] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     setProductData(product[0]);
@@ -38,6 +44,28 @@ export function DetailProduct(props) {
   };
 
   //-------------------------------------
+
+  const openCloseModal = () => setShowModal((prev) => !prev);
+
+  const addProductId = (id) => {
+    setIdPropduct(id);
+    openCloseModal();
+  };
+
+
+  const addData = () => {
+    addCart(idProduct, quantity);
+    toast.success("¡Se agrego con exito!");
+
+    openCloseModal();
+  };
+
+  const handleQuantityChange = (event) => {
+    const value = parseInt(event.target.value);
+    setQuantity(value);
+  };
+
+
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -74,14 +102,17 @@ export function DetailProduct(props) {
               <h5 className={styles.name_extend}>{productData.name_extend}</h5>
               <div className={styles.price}>
                 {productData.price2 > 0 && (
-                  <h6>Por mayor $ {productData.price2}</h6>
+                  <h5>Por mayor $ {productData.price2}</h5>
                 )}
                 {productData.price1 > 0 && (
-                  <h6>Al detal $ {productData.price1}</h6>
+                  <h5>Al detal $ {productData.price1}</h5>
                 )}
               </div>
             </CardTitle>
             
+            <Button onClick={() => addProductId(productData.codigo)}>
+                Agregar al Carrito
+              </Button>
             <p>{productData.description}</p>
 
             <div
@@ -129,6 +160,33 @@ export function DetailProduct(props) {
             ))}
           </div>
         </div> */}
+
+<Modal centered isOpen={showModal} toggle={openCloseModal}>
+            <ModalHeader toggle={openCloseModal}>Ingrese Cantidad</ModalHeader>
+
+            <ModalBody>
+              Cantidad
+              <FormGroup>
+                <Input
+                  value={quantity}
+                  type="number"
+                  name="cantidad"
+                  id="cantidad"
+                  placeholder="Cantidad"
+                  onChange={handleQuantityChange}
+                />
+              </FormGroup>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button color="primary" onClick={addData}>
+                Aceptar
+              </Button>{" "}
+              <Button color="secondary" onClick={openCloseModal}>
+                Cancelar
+              </Button>
+            </ModalFooter>
+          </Modal>
 
         <Modal centered isOpen={isOpen} toggle={toggleModal}>
           <ModalHeader toggle={toggleModal}>Seleccione una Linea</ModalHeader>

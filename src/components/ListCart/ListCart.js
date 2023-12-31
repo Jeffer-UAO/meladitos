@@ -20,20 +20,17 @@ export function ListCart(props) {
         <h4>Carrito</h4>
         {map(product, (item) => (
           <div key={item.codigo} className={styles.card}>
-          
-              <CardImg
-                alt="Card image cap"
-                src={BASE_NAME + item.images}
-                className={styles.skeleton}
-              />
-    
+            <CardImg
+              alt="Card image cap"
+              src={BASE_NAME + item.images}
+              className={styles.skeleton}
+            />
 
             <div className={styles.detalle}>
               <p className={styles.name}>{item.name_extend}</p>
 
               <p className={styles.price}>Detal: $ {item.price1}</p>
               <p className={styles.price}>Mayor: $ {item.price2}</p>
-              
 
               <div className={styles.btn}>
                 <AiOutlineMinusCircle
@@ -57,7 +54,7 @@ export function ListCart(props) {
               </Button>
             </div>
           </div>
-        ))}    
+        ))}
       </div>
     </div>
   );
