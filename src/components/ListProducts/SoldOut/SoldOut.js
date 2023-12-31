@@ -6,6 +6,8 @@ import { CardImg } from "reactstrap";
 import styles from "./SoldOut.module.scss";
 
 export function SoldOut(props) {
+  const scale = "c_scale,f_auto,q_20,w_400/";
+const upload = "image/upload/";
   const { product } = props;
 
 
@@ -18,7 +20,12 @@ export function SoldOut(props) {
       {product.productData.images ? (       
           <CardImg
             alt="Card image cap"
-            src={BASE_NAME + product.productData.images}
+            src={
+              BASE_NAME +
+              upload +
+              scale +
+              product.productData.images.split(upload)[1]
+            }
           />
       ) : (
                  <CardImg
