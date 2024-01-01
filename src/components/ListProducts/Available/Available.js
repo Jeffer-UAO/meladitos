@@ -120,10 +120,10 @@ export function Available(props) {
             <div className={styles.price}>
               <CardSubtitle>
                 {product.productData.price2 > 0 && (
-                  <h6>Por mayor $ {product.productData.price2}</h6>
+                  <h6>Por Mayor $ {format(product.productData.price2)}</h6>
                 )}
                 {product.productData.price1 > 0 && (
-                  <h6>Al detal $ {product.productData.price1}</h6>
+                  <h6>Al Detal $ {format(product.productData.price1)}</h6>
                 )}
               </CardSubtitle>
 

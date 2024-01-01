@@ -21,7 +21,10 @@ export function DetailProduct(props) {
   const scale = "c_scale,f_auto,q_auto,w_800/";
   const upload = "image/upload/";
   const { product, relate } = props;
-  
+
+  const format = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
 
   const { generateWhatsAppLink, items, seller, selectedItem, handleItemClick } =
     useWhatsApp();
@@ -102,10 +105,10 @@ export function DetailProduct(props) {
               <h5 className={styles.name_extend}>{productData.name_extend}</h5>
               <div className={styles.price}>
                 {productData.price2 > 0 && (
-                  <h5>Por mayor $ {productData.price2}</h5>
+                  <h5>Por mayor $ {format(productData?.price2)}</h5>
                 )}
                 {productData.price1 > 0 && (
-                  <h5>Al detal $ {productData.price1}</h5>
+                  <h5>Al detal $ {format(productData?.price1)}</h5>
                 )}
               </div>
             </CardTitle>

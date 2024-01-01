@@ -11,8 +11,7 @@ export function ListCategories(props) {
   const upload = 'image/upload/';
 
   return (
-    <div>
-      
+    <div>      
       <div className={styles.content}>
       <h4>CATEGORÍAS</h4>
         <div className={styles.list}>
