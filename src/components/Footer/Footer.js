@@ -50,7 +50,7 @@ export function Footer() {
       </div>
       <div>
         <p className={styles.copyright}>
-        LOS MELADITOS DISTRIBUIDORA Copyright © 2023. Todos los derechos
+        LOS MELADITOS DISTRIBUIDORA Copyright © 2024. Todos los derechos
           reservados <br />
           Desarrollado por: Jeffer Quiñones <br />
           Cel: 300 530 9990

@@ -6,7 +6,7 @@ import { BsFacebook } from "react-icons/bs";
 export function Redes() {
   return (
     <div className={styles.space}>
-      <h4>CATÁLOGO 2023</h4>
+      <h4>CATÁLOGO 2024</h4>
       <div className={styles.phone}>
         <p>322 663 0481 </p>
         <p>- 310 893 7275</p>
